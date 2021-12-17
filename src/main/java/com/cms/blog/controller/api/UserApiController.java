@@ -19,6 +19,9 @@ public class UserApiController {
 	@Autowired
 	private UserService userService;
 	
+//	@Autowired
+//	private HttpSession session;  이렇게도 가능!!!
+	
 	@PostMapping("/api/user")
 	public ResponseDto<Integer> save(@RequestBody User user) {
 		System.out.println("UserApiController : Save 호출됨");
@@ -28,6 +31,7 @@ public class UserApiController {
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1); //자바오브젝트를 JSON으로 변환해서 리턴 (Jackson)
 	}
 	
+	//스프링 시큐리티 사용하면 이방식 X 
 	@PostMapping("/api/user/login")
 	public ResponseDto<Integer> login(@RequestBody User user, HttpSession session){
 		System.out.println("UserApiController : save 호출됨");
