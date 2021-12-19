@@ -1,7 +1,8 @@
 package com.cms.blog.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import com.cms.blog.model.User;
 
@@ -17,6 +18,12 @@ public interface UserRepository extends JpaRepository<User, Integer>{ //User 테
 //	
 //	@Query(value="SELECT * FROM user WHERE username = ?1 AND password =?2", nativeQuery = true)
 //	User login(String username, String password);
+	
+	
+	//SELECT * FROM user WHERE username = 1?;
+	Optional<User> findByUsername(String username);
+	
+	
 	
 	
 
