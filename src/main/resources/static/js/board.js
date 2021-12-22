@@ -9,7 +9,6 @@ let index = {
 		$("#btn-update").on("click", () => { /*function(){}, ()=>{} this를 바인딩하기 위해서!*/
 			this.update();
 		});
-
 	},
 
 	save: function() {
