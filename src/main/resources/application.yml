@@ -33,3 +33,5 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+cms:
+  key: cms1234
