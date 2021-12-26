@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReplySaveRequestDto {
-	private int uesrId;
+	private int userId;
 	private int boardId;
 	private String content;
 	
