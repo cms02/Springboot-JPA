@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cms.blog.config.auth.PrincipalDetail;
 import com.cms.blog.dto.ResponseDto;
 import com.cms.blog.model.Board;
+import com.cms.blog.model.Reply;
 import com.cms.blog.service.BoardService;
 
 @RestController
@@ -43,6 +44,14 @@ public class BoardApiController {
 		
 		boardService.글수정하기(id,board);
 		
+		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+		
+	}
+	
+	@PostMapping("/api/board/{boardId}/reply")
+	public ResponseDto<Integer> replySave(@PathVariable int boardId, @RequestBody Reply reply, @AuthenticationPrincipal PrincipalDetail principal){
+		
+		boardService.댓글쓰기(principal.getUser(), boardId, reply);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
 		
 	}
