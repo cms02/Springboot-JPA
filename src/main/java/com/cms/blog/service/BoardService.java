@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cms.blog.dto.ReplySaveRequestDto;
 import com.cms.blog.model.Board;
-import com.cms.blog.model.Reply;
 import com.cms.blog.model.User;
 import com.cms.blog.repository.BoardRepository;
 import com.cms.blog.repository.ReplyRepository;
@@ -23,9 +22,6 @@ public class BoardService {
 	
 	@Autowired
 	private ReplyRepository replyRepository;
-	
-	@Autowired
-	private UserRepository userRepository;
 	
 	@Transactional
 	public void 글쓰기(Board board, User user) {	//title, content
