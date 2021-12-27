@@ -1,7 +1,6 @@
 package com.cms.blog.service;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -12,16 +11,27 @@ import com.cms.blog.model.Board;
 import com.cms.blog.model.User;
 import com.cms.blog.repository.BoardRepository;
 import com.cms.blog.repository.ReplyRepository;
-import com.cms.blog.repository.UserRepository;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor	//초기화 안된애들 초기화 시켜줌
 public class BoardService {
 	
-	@Autowired
-	private BoardRepository boardRepository;
+	private final BoardRepository boardRepository;
+	private final ReplyRepository replyRepository;
 	
-	@Autowired
-	private ReplyRepository replyRepository;
+//	public BoardService(BoardRepository bRepo, ReplyRepository rRepo) {
+//		this.boardRepository = bRepo;
+//		this.replyRepository = rRepo;
+//	}
+	
+	
+//	@Autowired
+//	private BoardRepository boardRepository;
+//	
+//	@Autowired
+//	private ReplyRepository replyRepository;
 	
 	@Transactional
 	public void 글쓰기(Board board, User user) {	//title, content
